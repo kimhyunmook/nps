@@ -7,8 +7,8 @@
   "scripts": {
     "build": "tsc && copyfiles -u 1 \"src/**/*.{module.css,svg}\" dist",
     "lint": "eslint .",
-    "start": "next dev",
-    "distribute": "npm publish --access public"
+    "dev": "next dev",
+    "distribute": "npm run build && npm publish --access public"
   },
   "files": [
     "dist"
@@ -28,6 +28,7 @@
     "typescript": "^5"
   },
   "dependencies": {
+    "@svgr/webpack": "^8.1.0",
     "copyfiles": "^2.4.1"
   }
 }

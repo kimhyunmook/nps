@@ -5,17 +5,17 @@ import React, {
   useContext,
   useState,
 } from "react";
-import CrystalModal, { ComponenetValue } from "./npsModal";
-import type { CrystalClassName } from "./types/crystalType";
+import NpsModal from "./npsModal";
+import type {
+  NextPropsShared,
+  NextPropsSharedLayout,
+  ComponenetValue,
+} from "./types/npsType";
 import { getDisplayName } from "next/dist/shared/lib/utils";
 import npsl from "./styles/npsLayout.module.css";
+import ToasterProvider from "./components/toaster/toasterProvider";
 
-interface Crystal {
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  setComponent: React.Dispatch<React.SetStateAction<object>>;
-}
-
-const CrystalContext = createContext<Crystal>({
+const NextPropsSharedContext = createContext<NextPropsShared>({
   setIsOpen: () => {},
   setComponent: () => {},
 });
@@ -25,23 +25,16 @@ export default function Nps({ children }: PropsWithChildren) {
   const [component, setComponent] = useState<ComponenetValue>({});
 
   return (
-    <CrystalContext.Provider value={{ setIsOpen, setComponent }}>
-      <div className={npsl.page}>{children}</div>
-      <CrystalModal
-        isOpen={isOpen}
-        setIsOpen={setIsOpen}
-        component={component}
-      />
-    </CrystalContext.Provider>
+    <NextPropsSharedContext.Provider value={{ setIsOpen, setComponent }}>
+      <ToasterProvider>
+        <div className={npsl.page}>{children}</div>
+        <NpsModal isOpen={isOpen} setIsOpen={setIsOpen} component={component} />
+      </ToasterProvider>
+    </NextPropsSharedContext.Provider>
   );
 }
 
-type UseLayoutProps = CrystalClassName & {
-  title: string;
-  width?: number | string;
-};
-
-export function Npsl({ children, title, width }: UseLayoutProps) {
+export function NpsLayout({ children, title, width }: NextPropsSharedLayout) {
   const { setIsOpen, setComponent } = useNps();
   return (
     <div className={npsl.layout} style={{ width }}>
@@ -88,7 +81,7 @@ export function Npsl({ children, title, width }: UseLayoutProps) {
 }
 
 export function useNps() {
-  const context = useContext<Crystal>(CrystalContext);
-  if (!context) throw new Error("Crytal Componenets 안에서 사용하세요");
+  const context = useContext<NextPropsShared>(NextPropsSharedContext);
+  if (!context) throw new Error("NpsProvider 안에서 사용하세요");
   return context;
 }
