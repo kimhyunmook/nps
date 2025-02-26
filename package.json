@@ -1,25 +1,33 @@
 {
-  "name": "hook",
-  "version": "0.1.0",
-  "private": true,
+  "name": "next-props-shared",
+  "version": "0.1.6",
+  "description": "A Next.js App Router components props shared library",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "build": "tsc && copyfiles -u 1 \"src/**/*.{module.css,svg}\" dist",
+    "lint": "eslint .",
+    "start": "next dev",
+    "distribute": "npm publish --access public"
   },
-  "dependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "next": "15.1.7"
+  "files": [
+    "dist"
+  ],
+  "peerDependencies": {
+    "next": ">=13.0.0",
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@eslint/eslintrc": "^3",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.1.7",
-    "@eslint/eslintrc": "^3"
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "copyfiles": "^2.4.1"
   }
 }
