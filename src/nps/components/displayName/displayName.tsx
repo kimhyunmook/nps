@@ -19,7 +19,7 @@ export default function DisplayName({ component }: DisplayNameProps) {
   return (
     <div className={s.displayName} onClick={clipDisplayName}>
       {displayName}
-      <Image src="../../img/document.svg" width={30} height={30} alt="복사" />
+      <Image src={"../img/document.svg"} width={30} height={30} alt="복사" />
     </div>
   );
 }
