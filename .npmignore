@@ -1,3 +1,4 @@
-app
-.next
-next.config.ts
+/app
+/.next
+/next.config.ts
+/public

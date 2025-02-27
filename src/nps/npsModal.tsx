@@ -47,19 +47,18 @@ export default function NpsModal({
             propsValue.map((v, index) => {
               let value = typeof v[1] as React.ReactNode;
               if (v[1] === null) value = "null";
-
               switch (value) {
                 case "function":
                   value = "void";
                   break;
 
                 case "object":
+                  // 배열인 경우
                   if (Array.isArray(v[1])) {
-                    const overlap = v[1].map((v) => {
-                      return typeof v[1];
-                    });
+                    const overlap = v[1].map((v) => typeof v);
                     const setOverlap = new Set(overlap);
                     const arr = [...setOverlap];
+
                     value = arr.reduce((a, c, i) => {
                       a += c;
                       if (i !== arr.length - 1) a += "|";
@@ -67,6 +66,7 @@ export default function NpsModal({
                       return a;
                     }, "");
                   } else {
+                    // 객체인 경우
                     const arr = Object.entries(v[1]);
 
                     const reactChk = arr[0].find((x) => x === "$$typeof");
@@ -74,8 +74,8 @@ export default function NpsModal({
                       value = "React.ReactNode";
                       return (
                         <li className={""} key={index}>
-                          <span className={npsm.key}>{v[0]}</span>
-                          <span className={npsm.value}>{value}</span>
+                          <h3 className={npsm.key}>{v[0]}</h3>
+                          <p className={npsm.value}>{value}</p>
                         </li>
                       );
                     }
@@ -101,7 +101,9 @@ export default function NpsModal({
               );
             })
           ) : (
-            <li className={npsm.noProps}>Props가 없어요</li>
+            <li className={npsm.noProps}>
+              <p>Props가 없어요</p>
+            </li>
           )}
         </ul>
       </div>

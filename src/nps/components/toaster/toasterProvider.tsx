@@ -60,7 +60,6 @@ function ToasterProvider({ children }: PropsWithChildren) {
 
   function toaster(type: ToastType, message: string) {
     const newToast = addToast(type, message);
-
     setTimeout(() => removeToast(newToast.id), 2000);
   }
 
