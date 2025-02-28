@@ -1,7 +1,7 @@
 "use cleint";
-import { ComponenetValue } from "../../npsModal";
+import { ComponenetValue } from "@/nps/types/npsType";
 import s from "./displayName.module.css";
-import Image from "next/image";
+import DocumentIcon from "../../img/document.svg";
 
 interface DisplayNameProps {
   component: ComponenetValue;
@@ -12,14 +12,18 @@ export default function DisplayName({ component }: DisplayNameProps) {
   )
     ? `<${component.displayName}></${component.displayName}>`
     : `<${component?.displayName} />`;
+
   async function clipDisplayName() {
     await navigator?.clipboard?.writeText(displayName);
   }
 
   return (
     <div className={s.displayName} onClick={clipDisplayName}>
-      {displayName}
-      <Image src={"../img/document.svg"} width={30} height={30} alt="복사" />
+      <p>{displayName}</p>
+      {/* {displayName} */}
+      <div className={s.img}>
+        <DocumentIcon width={24} height={24} />
+      </div>
     </div>
   );
 }

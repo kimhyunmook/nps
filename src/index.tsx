@@ -1,4 +1,4 @@
-import Nps, { Npsl } from "./nps/nps";
+import Nps, { NpsLayout } from "./nps/nps";
 
-export { Npsl };
+export { NpsLayout };
 export default Nps;
