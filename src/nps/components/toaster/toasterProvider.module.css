@@ -2,7 +2,7 @@
   position: fixed;
   display: flex;
   flex-direction: column-reverse;
-  gap: 24px;
+  gap: 20px;
   justify-content: center;
   align-items: center;
   top: 64px;
@@ -16,14 +16,16 @@
 .Toast {
   display: flex;
   border-radius: 6px;
-  padding: 10px 16px 10px 12px;
+  padding: 10px 14px 10px;
   justify-content: center;
   align-items: center;
-  gap: 8px;
+  text-align: center;
   position: relative;
   top: -8px;
   opacity: 0;
   transition: top 0.1s ease-in-out, opacity 0.1s ease-in-out;
+  font-size: 18px;
+  font-weight: 500;
 }
 
 .Toast.mounted {
@@ -37,13 +39,13 @@
 }
 
 .Toast.info {
-  color: #ffffff;
-  background-color: var(--brand_black);
+  color: #000;
+  background-color: #4ec9b0;
 }
 
 .Toast.warn {
   color: #ffffff;
-  background-color: var(--error);
+  background-color: rgb(202, 63, 63);
   animation: warn 0.5s;
 }
 

@@ -1,6 +1,6 @@
 {
   "name": "next-props-shared",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "A Next.js App Router components props shared library",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
