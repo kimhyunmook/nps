@@ -1,8 +1,8 @@
 "use cleint";
 import { ComponenetValue } from "@/nps/types/npsType";
 import s from "./displayName.module.css";
-import DocumentIcon from "../../img/document.svg";
 import { useToaster } from "../toaster/toasterProvider";
+import Image from "next/image";
 
 interface DisplayNameProps {
   component: ComponenetValue;
@@ -25,7 +25,7 @@ export default function DisplayName({ component }: DisplayNameProps) {
       <p>{displayName}</p>
       {/* {displayName} */}
       <div className={s.img}>
-        <DocumentIcon width={24} height={24} />
+        <Image src="/img/document.svg" width={24} height={24} alt="복사" />
       </div>
     </div>
   );

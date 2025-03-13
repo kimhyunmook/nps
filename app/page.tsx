@@ -7,20 +7,12 @@ import Image from "next/image";
 export default function Text() {
   return (
     <Nps>
-      {/* <NpsLayout title="list">
+      <NpsLayout title="list">
         <div>
           <p>1</p>
         </div>
         <div>112</div>
-        <Test arr={["a1", "3", "5"]}></Test>
-      </NpsLayout> */}
-
-      <div className="container">
-        <ul className="userTypeBox">
-          <LinkImage src="/img/2.gif" alt="일반유저" />
-          <LinkImage src="/img/1.gif" alt="기사님" />
-        </ul>
-      </div>
+      </NpsLayout>
     </Nps>
   );
 }
