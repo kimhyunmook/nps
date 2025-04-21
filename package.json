@@ -10,7 +10,8 @@
   "type": "module",
   "scripts": {
     "dev": "cd example && npm run dev",
-    "build:ts": "tsc --emitDeclarationOnly",
+    "copy-assets": "copyfiles -u 1 src/nps/assets/**/* dist/assets",
+    "build:ts": "tsc --emitDeclarationOnly && npm run copy-assets",
     "build:js": "rollup -c",
     "build:types": "rollup -c rollup.types.js",
     "build": "npm run build:ts && npm run build:js && npm run build:types",
@@ -29,6 +30,7 @@
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
     "autoprefixer": "^10.4.21",
+    "copyfiles": "^2.4.1",
     "postcss": "^8.5.3",
     "postcss-import": "^16.1.0",
     "rollup": "^4.40.0",
