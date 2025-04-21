@@ -13,6 +13,8 @@ import type {
 } from "./types/npsType";
 import npsl from "./styles/npsLayout.module.css";
 import ToasterProvider from "./components/toaster/toasterProvider";
+import getDisplayName from "./lib/getDisplayName";
+import getVscUrl from "./lib/getVscUrl";
 
 const NextPropsSharedContext = createContext<NextPropsShared>({
   setIsOpen: () => {},
@@ -47,7 +49,6 @@ export function Container({ children, title, width }: NextPropsSharedLayout) {
                 e.stopPropagation();
                 setIsOpen(true);
                 if (!React.isValidElement(child)) return;
-
                 const cloneProps = Object.fromEntries(
                   Object.entries(child.props ?? {}).map((v) => {
                     const key = v[0];
@@ -56,18 +57,15 @@ export function Container({ children, title, width }: NextPropsSharedLayout) {
                   })
                 );
                 const clone = React.cloneElement(child, cloneProps);
-                console.log("clone", clone);
-                const displayName = child.type as unknown as {
-                  displayName: string;
-                };
+                const displayName = getDisplayName(child);
+                const vscUrl = getVscUrl(child);
+
                 setComponent({
                   element: clone,
-                  displayName:
-                    typeof displayName === "string"
-                      ? displayName
-                      : displayName.displayName,
+                  displayName: displayName,
                   name: typeof child.type === "function" ? child.type.name : "",
                   props: child.props,
+                  vscUrl,
                 });
               }}
             >

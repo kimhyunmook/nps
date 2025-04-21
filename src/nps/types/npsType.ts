@@ -19,6 +19,7 @@ export type ComponenetValue = {
   props?: object;
   element?: React.ReactNode;
   displayName?: string;
+  vscUrl?: string;
 };
 
 export interface NextPropsSharedModalProps {

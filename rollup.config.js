@@ -4,6 +4,8 @@ import typescript from "rollup-plugin-typescript2";
 import postcss from "rollup-plugin-postcss";
 import postcssImport from "postcss-import";
 import autoprefixer from "autoprefixer";
+import svg from "rollup-plugin-svg-import";
+import image from "@rollup/plugin-image";
 
 export default {
   input: "src/index.tsx",
@@ -16,6 +18,10 @@ export default {
     resolve(),
     commonjs(),
     typescript(),
+    svg({
+      stringify: true, // SVG를 문자열로 import
+    }),
+    image(),
     postcss({
       extensions: [".css"],
       modules: true, // CSS Modules 활성화 :contentReference[oaicite:4]{index=4}

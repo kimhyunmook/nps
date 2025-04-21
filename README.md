@@ -2,6 +2,8 @@
 
 ### Created to share components more intuitively
 
+### use code
+
 ```typescript
 import UiProvider, { Container } from "next-props-shared";
 // target page

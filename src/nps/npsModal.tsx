@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
 import npsm from "./styles/npsModal.module.css";
-import DisplayName from "./components/displayName/displayName";
+import DisplayName from "./components/displayName";
 import { NextPropsSharedModalProps } from "./types/npsType";
+import CodeBtn from "./components/codeBtn";
 
 export default function NpsModal({
   isOpen,
@@ -31,6 +32,7 @@ export default function NpsModal({
     component.element = React.cloneElement(component.element, np);
   }
   const propsValue = Object.entries(component?.props ?? {});
+
   return (
     <div className={`${npsm.infomation} ${isOpen && npsm.display}`}>
       <div className={npsm.top}>
@@ -39,6 +41,7 @@ export default function NpsModal({
       </div>
       <DisplayName component={component} />
       <div className={npsm.elements}>{component.element}</div>
+      {component.vscUrl && <CodeBtn url={component.vscUrl} />}
       <div className={npsm.lists}>
         {!!component?.props && <h2 className={npsm.title}>Props</h2>}
         <ul>

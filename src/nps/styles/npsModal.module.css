@@ -14,6 +14,13 @@
   background-color: #252526;
   max-height: 100vh;
   box-sizing: border-box;
+
+  --bg: #21262d;
+  --props: #9cdcfe;
+  --line: #d4d4d4;
+  --title: #569cd6;
+  --componentName: #dcdcaa;
+  --component: #4ec9b0;
 }
 .infomation.display {
   bottom: 0;
@@ -25,7 +32,7 @@
   font-family: Quantico;
   font-size: 32px;
   font-weight: 700;
-  color: #dcdcaa;
+  color: var(--componentName);
   margin: initial;
   padding-bottom: 5px;
   box-sizing: border-box;
@@ -45,16 +52,15 @@
 .lists {
 }
 .lists h2 {
-  border: 1px solid var(--gray800);
   padding: 0 5px 5px 5px;
-  color: #569cd6;
+  color: var(--title);
   margin: initial;
   box-sizing: border-box;
 }
 
 .lists ul {
-  border-bottom: 1px solid #d4d4d4;
-  background-color: #21262d;
+  border-bottom: 1px solid var(--line);
+  background-color: var(--bg);
   padding: initial;
   margin: initial;
   box-sizing: border-box;
@@ -62,7 +68,7 @@
 .lists ul li {
   display: flex;
   padding: 2.5px;
-  border-bottom: 1px solid #d4d4d4;
+  border-bottom: 1px solid var(--line);
   margin: initial;
   box-sizing: border-box;
 }
@@ -84,12 +90,12 @@
   font-size: 20px;
   margin: initial;
   margin-right: 15px;
-  color: #9cdcfe;
+  color: var(--props);
   box-sizing: border-box;
 }
 .value {
   font-size: 18px;
-  color: #4ec9b0;
+  color: var(--component);
   line-height: 1.5em;
   margin: initial;
   box-sizing: border-box;
@@ -117,13 +123,17 @@
   right: 10px;
   margin: initial;
   box-sizing: border-box;
+  border-radius: 50%;
+  transition: 0.5s;
+}
+.closeBtn:hover {
 }
 
 .closeBtn:hover::after,
 .closeBtn:hover::before {
   width: 85%;
-  height: 4px;
-  background-color: #569cd6;
+  height: 2px;
+  background-color: var(--props);
 }
 
 .closeBtn::after,
@@ -133,7 +143,7 @@
   border-radius: 5px;
   width: 80%;
   height: 2px;
-  background-color: #ececec;
+  background-color: var(--line);
   left: 50%;
   top: 50%;
   position: absolute;

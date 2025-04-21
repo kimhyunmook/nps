@@ -1,4 +1,3 @@
-"use client";
 import React, {
   createContext,
   PropsWithChildren,
@@ -6,7 +5,7 @@ import React, {
   useState,
   useEffect,
 } from "react";
-import styles from "./toasterProvider.module.css";
+import styles from "../../styles/toasterProvider.module.css";
 
 type ToastType = "info" | "warn";
 interface ToastProps {
