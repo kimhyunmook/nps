@@ -1,8 +1,7 @@
-"use cleint";
-import { ComponenetValue } from "@/nps/types/npsType";
+import { ComponenetValue } from "../../types/npsType";
 import s from "./displayName.module.css";
 import { useToaster } from "../toaster/toasterProvider";
-import Image from "next/image";
+import documentImg from "../../assets/img/document.svg";
 
 interface DisplayNameProps {
   component: ComponenetValue;
@@ -19,13 +18,14 @@ export default function DisplayName({ component }: DisplayNameProps) {
     toaste("info", `복사했습니다.`);
     await navigator?.clipboard?.writeText(displayName);
   }
+  const img = documentImg as unknown as { src: string };
 
   return (
     <div className={s.displayName} onClick={clipDisplayName}>
       <p>{displayName}</p>
       {/* {displayName} */}
       <div className={s.img}>
-        <Image src="/img/document.svg" width={24} height={24} alt="복사" />
+        <img src={img.src} alt="복사" />
       </div>
     </div>
   );

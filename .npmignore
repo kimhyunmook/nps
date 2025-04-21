@@ -1,3 +1,4 @@
-/app
-/.next
-/next.config.ts
+src/
+*.config.js
+*.test.tsx
+node_modules

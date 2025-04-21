@@ -11,7 +11,6 @@ import type {
   NextPropsSharedLayout,
   ComponenetValue,
 } from "./types/npsType";
-import { getDisplayName } from "next/dist/shared/lib/utils";
 import npsl from "./styles/npsLayout.module.css";
 import ToasterProvider from "./components/toaster/toasterProvider";
 
@@ -20,10 +19,9 @@ const NextPropsSharedContext = createContext<NextPropsShared>({
   setComponent: () => {},
 });
 
-export default function NpsProvider({ children }: PropsWithChildren) {
+export default function UiProvider({ children }: PropsWithChildren) {
   const [isOpen, setIsOpen] = useState(false);
   const [component, setComponent] = useState<ComponenetValue>({});
-  console.log(children);
   return (
     <NextPropsSharedContext.Provider value={{ setIsOpen, setComponent }}>
       <ToasterProvider>
@@ -34,21 +32,7 @@ export default function NpsProvider({ children }: PropsWithChildren) {
   );
 }
 
-export function Nps({ children }: PropsWithChildren) {
-  const [isOpen, setIsOpen] = useState(false);
-  const [component, setComponent] = useState<ComponenetValue>({});
-
-  return (
-    <NextPropsSharedContext.Provider value={{ setIsOpen, setComponent }}>
-      <ToasterProvider>
-        <div className={npsl.page}>{children}</div>
-        <NpsModal isOpen={isOpen} setIsOpen={setIsOpen} component={component} />
-      </ToasterProvider>
-    </NextPropsSharedContext.Provider>
-  );
-}
-
-export function NpsLayout({ children, title, width }: NextPropsSharedLayout) {
+export function Container({ children, title, width }: NextPropsSharedLayout) {
   const { setIsOpen, setComponent } = useNps();
   return (
     <div className={npsl.layout} style={{ width }}>
@@ -72,13 +56,16 @@ export function NpsLayout({ children, title, width }: NextPropsSharedLayout) {
                   })
                 );
                 const clone = React.cloneElement(child, cloneProps);
-
+                console.log("clone", clone);
+                const displayName = child.type as unknown as {
+                  displayName: string;
+                };
                 setComponent({
                   element: clone,
                   displayName:
-                    typeof child.type === "string"
-                      ? child.type
-                      : getDisplayName(child.type),
+                    typeof displayName === "string"
+                      ? displayName
+                      : displayName.displayName,
                   name: typeof child.type === "function" ? child.type.name : "",
                   props: child.props,
                 });

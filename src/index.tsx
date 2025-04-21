@@ -1,4 +1,4 @@
-import Nps, { NpsLayout } from "./nps/nps";
+import UiProvier, { Container } from "./nps/nps";
 
-export { NpsLayout };
-export default Nps;
+export { Container };
+export default UiProvier;

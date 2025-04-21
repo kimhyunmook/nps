@@ -1,29 +1,19 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
+    "target": "ES2019", // 출력물의 JS 버전
+    "lib": ["ES2019", "DOM"], // Object.entries/fromEntries 지원 추가
+    "module": "ESNext",
+    "declaration": true, // 타입 선언 파일 생성
+    "declarationDir": "dist/types",
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
     "skipLibCheck": true,
     "strict": true,
+    "rootDir": "src",
     "outDir": "dist",
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "declaration": true,
-    "incremental": true,
-    "paths": {
-      "@/*": ["./src/*"]
-    },
-    "noEmit": false,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
+    "moduleResolution": "Node",
+    "noImplicitAny": false
   },
-  "include": ["global.d.ts", "src", ".next/types/**/*.ts"],
-  "exclude": ["node_modules", ".next"]
+  "include": ["src", "src/nps/types/global.d.ts"],
+  "exclude": ["example"]
 }

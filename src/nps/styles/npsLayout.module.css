@@ -3,11 +3,15 @@
   flex-wrap: wrap;
   box-sizing: border-box;
 }
+.page * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 .layout {
   position: relative;
   margin: 40px 10px;
   display: inline;
-  box-sizing: border-box;
 }
 .title {
   font-family: quantity;
@@ -15,15 +19,13 @@
   font-weight: 700;
   position: absolute;
   top: -30px;
-  box-sizing: border-box;
 }
 .list {
   margin: initial;
   padding: 30px;
-  border-radius: 10px;
+  border-radius: 6px;
   width: 100%;
   border: 1px dashed #000;
-  box-sizing: border-box;
 }
 .list .li {
   list-style: none;
@@ -33,7 +35,6 @@
   transition: 0.5s;
   padding: 3px;
   position: relative;
-  box-sizing: border-box;
 }
 .list .li .cover {
   width: 100%;
@@ -41,7 +42,6 @@
   position: absolute;
   top: 0;
   left: 0;
-  box-sizing: border-box;
 }
 .list .li:hover {
   border: 2px solid #000;

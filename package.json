@@ -1,37 +1,40 @@
 {
   "name": "next-props-shared",
-  "version": "0.1.10",
-  "description": "A Next.js App Router components props shared library",
-  "main": "dist/index.js",
+  "version": "0.1.12",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
-  "scripts": {
-    "build": "tsc && copyfiles -u 1 \"src/**/*.{module.css,svg}\" dist",
-    "lint": "eslint .",
-    "dev": "next dev",
-    "distribute": "npm run build && npm publish --access public"
-  },
   "files": [
     "dist"
   ],
+  "type": "module",
+  "scripts": {
+    "dev": "cd example && npm run dev",
+    "build:ts": "tsc --emitDeclarationOnly",
+    "build:js": "rollup -c",
+    "build:types": "rollup -c rollup.types.js",
+    "build": "npm run build:ts && npm run build:js && npm run build:types",
+    "deploy:check": "npm pack --dry-run",
+    "deploy": "npm publish --access public"
+  },
   "peerDependencies": {
-    "next": ">=13.0.0",
-    "react": ">=18.0.0",
-    "react-dom": ">=18.0.0"
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "@react-dev-inspector/middleware": "^2.0.1",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "click-to-react-component": "^1.1.2",
-    "eslint": "^9",
-    "eslint-config-next": "15.1.7",
-    "typescript": "^5"
-  },
-  "dependencies": {
-    "@svgr/webpack": "^8.1.0",
-    "copyfiles": "^2.4.1",
-    "react-dev-inspector": "^2.0.1"
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^28.0.3",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
+    "postcss-import": "^16.1.0",
+    "rollup": "^4.40.0",
+    "rollup-plugin-dts": "^6.2.1",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-typescript2": "^0.36.0",
+    "tslib": "^2.8.1",
+    "typescript": "^5.8.3"
   }
 }
