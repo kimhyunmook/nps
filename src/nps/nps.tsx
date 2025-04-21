@@ -14,7 +14,6 @@ import type {
 import { getDisplayName } from "next/dist/shared/lib/utils";
 import npsl from "./styles/npsLayout.module.css";
 import ToasterProvider from "./components/toaster/toasterProvider";
-import { Inspector } from "react-dev-inspector";
 
 const NextPropsSharedContext = createContext<NextPropsShared>({
   setIsOpen: () => {},
