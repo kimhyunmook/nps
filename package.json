@@ -1,6 +1,6 @@
 {
   "name": "next-props-shared",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "A Next.js App Router components props shared library",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -20,15 +20,18 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@react-dev-inspector/middleware": "^2.0.1",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "click-to-react-component": "^1.1.2",
     "eslint": "^9",
     "eslint-config-next": "15.1.7",
     "typescript": "^5"
   },
   "dependencies": {
     "@svgr/webpack": "^8.1.0",
-    "copyfiles": "^2.4.1"
+    "copyfiles": "^2.4.1",
+    "react-dev-inspector": "^2.0.1"
   }
 }

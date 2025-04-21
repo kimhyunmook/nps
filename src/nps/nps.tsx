@@ -14,13 +14,28 @@ import type {
 import { getDisplayName } from "next/dist/shared/lib/utils";
 import npsl from "./styles/npsLayout.module.css";
 import ToasterProvider from "./components/toaster/toasterProvider";
+import { Inspector } from "react-dev-inspector";
 
 const NextPropsSharedContext = createContext<NextPropsShared>({
   setIsOpen: () => {},
   setComponent: () => {},
 });
 
-export default function Nps({ children }: PropsWithChildren) {
+export default function NpsProvider({ children }: PropsWithChildren) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [component, setComponent] = useState<ComponenetValue>({});
+  console.log(children);
+  return (
+    <NextPropsSharedContext.Provider value={{ setIsOpen, setComponent }}>
+      <ToasterProvider>
+        <div className={npsl.page}>{children}</div>
+        <NpsModal isOpen={isOpen} setIsOpen={setIsOpen} component={component} />
+      </ToasterProvider>
+    </NextPropsSharedContext.Provider>
+  );
+}
+
+export function Nps({ children }: PropsWithChildren) {
   const [isOpen, setIsOpen] = useState(false);
   const [component, setComponent] = useState<ComponenetValue>({});
 
