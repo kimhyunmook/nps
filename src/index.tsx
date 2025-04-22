@@ -1,4 +1,8 @@
 import UiProvier, { Container } from "./nps/nps";
 
-export { Container };
-export default UiProvier;
+const NPS = {
+  UiProvier,
+  Container,
+};
+export { UiProvier, Container };
+export default NPS;

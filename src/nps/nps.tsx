@@ -5,7 +5,7 @@ import React, {
   useContext,
   useState,
 } from "react";
-import NpsModal from "./npsModal";
+import NpsModal from "./modal";
 import type {
   NextPropsShared,
   NextPropsSharedLayout,
@@ -34,10 +34,18 @@ export default function UiProvider({ children }: PropsWithChildren) {
   );
 }
 
-export function Container({ children, title, width }: NextPropsSharedLayout) {
+export function Container({
+  children,
+  title,
+  width,
+  borderColor,
+}: NextPropsSharedLayout) {
   const { setIsOpen, setComponent } = useNps();
   return (
-    <div className={npsl.layout} style={{ width }}>
+    <div
+      className={npsl.layout}
+      style={{ width, borderColor, boxShadow: `0 3px 0 ${borderColor}` }}
+    >
       <h2 className={npsl.title}>{title}</h2>
       <ul className={npsl.list}>
         {React.Children.map(children, (child, index) => {
@@ -69,7 +77,7 @@ export function Container({ children, title, width }: NextPropsSharedLayout) {
                 });
               }}
             >
-              {child}
+              <div className={npsl.element}>{child}</div>
               <div className={npsl.cover}></div>
             </li>
           );

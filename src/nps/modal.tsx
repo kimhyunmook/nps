@@ -1,19 +1,23 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React from "react";
+import React, { useEffect, useState } from "react";
 import npsm from "./styles/npsModal.module.css";
-import DisplayName from "./components/displayName";
+import DisplayName from "./components/modal/displayName";
 import { NextPropsSharedModalProps } from "./types/npsType";
-import CodeBtn from "./components/codeBtn";
+import CodeBtn from "./components/modal/codeBtn";
 
 export default function NpsModal({
   isOpen,
   setIsOpen,
   component,
 }: NextPropsSharedModalProps) {
+  const [keyMaxLength, setKML] = useState(0);
   function close(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
     e.preventDefault();
     setIsOpen(false);
   }
+  useEffect(() => {
+    setKML(0);
+  }, [component]);
 
   const np =
     component.element && React.isValidElement(component.element)
@@ -28,22 +32,23 @@ export default function NpsModal({
           })
         )
       : {};
-  if (React.isValidElement(component.element)) {
+  if (React.isValidElement(component.element))
     component.element = React.cloneElement(component.element, np);
-  }
+
   const propsValue = Object.entries(component?.props ?? {});
+  const cpName = component.name + " (Component)";
 
   return (
     <div className={`${npsm.infomation} ${isOpen && npsm.display}`}>
       <div className={npsm.top}>
-        <h2 className={npsm.name}>{component.name || "Document"}</h2>
+        <h2 className={npsm.name}>{!!component.name ? cpName : "Element"}</h2>
         <a className={npsm.closeBtn} onClick={close}></a>
       </div>
       <DisplayName component={component} />
       <div className={npsm.elements}>{component.element}</div>
       {component.vscUrl && <CodeBtn url={component.vscUrl} />}
       <div className={npsm.lists}>
-        {!!component?.props && <h2 className={npsm.title}>Props</h2>}
+        <h2 className={npsm.title}>Props</h2>
         <ul>
           {propsValue.length > 0 ? (
             propsValue.map((v, index) => {
@@ -94,10 +99,17 @@ export default function NpsModal({
                   }
                   break;
               }
+              const key = v[0];
+              if (key.length > keyMaxLength) setKML(key.length);
 
               return (
                 <li key={index}>
-                  <h3 className={npsm.key}>{v[0]}</h3>
+                  <h3
+                    className={npsm.key}
+                    style={{ width: `${keyMaxLength - 1}ch` }}
+                  >
+                    {key}
+                  </h3>
                   <p className={npsm.value}>{value}</p>
                 </li>
               );

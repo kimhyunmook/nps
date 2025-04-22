@@ -1,4 +1,4 @@
-import { PropsWithChildren } from "react";
+import { CSSProperties, PropsWithChildren } from "react";
 
 export interface PropsC2 extends PropsWithChildren {
   className?: string;
@@ -12,6 +12,7 @@ export interface NextPropsShared {
 export interface NextPropsSharedLayout extends PropsC2 {
   title: string;
   width?: number | string;
+  borderColor?: CSSProperties["borderColor"];
 }
 
 export type ComponenetValue = {

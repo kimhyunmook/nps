@@ -3,10 +3,13 @@
   text-decoration: none;
   color: #333;
   background-color: #eee;
-  width: 50px;
+  width: 35px;
   height: 28px;
   font-weight: 500;
   position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 12px;
   overflow: hidden;
   top: 10px;
@@ -14,18 +17,14 @@
   transition: 0.5s;
   border: var(--border) solid transparent;
 }
-.codeBtn img {
-  width: 24px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: 0.5s;
-}
+
 .codeBtn:hover {
   font-weight: 700;
-  /* background-color: var(--title); */
-  border: var(--border) solid var(--title);
+  width: 45px;
+  font-size: 1.1em;
+  color: var(--title);
+  background-color: #fff;
+  border: var(--border) solid var(--props);
 }
 
 .codeBtn:hover img {

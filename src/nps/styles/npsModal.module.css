@@ -2,7 +2,7 @@
 .infomation {
   position: fixed;
   bottom: -100%;
-  max-width: 500px;
+  max-width: 450px;
   width: 100%;
   border: 1px solid #252526;
   border-radius: 6px;
@@ -10,7 +10,7 @@
   transform: translateX(-50%);
   transition: 0.5s;
   z-index: 99;
-  padding: 20px;
+  padding: 15px;
   background-color: #252526;
   max-height: 100vh;
   box-sizing: border-box;
@@ -30,7 +30,7 @@
 
 .name {
   font-family: Quantico;
-  font-size: 32px;
+  font-size: 24px;
   font-weight: 700;
   color: var(--componentName);
   margin: initial;
@@ -52,7 +52,7 @@
 .lists {
 }
 .lists h2 {
-  padding: 0 5px 5px 5px;
+  padding-bottom: 5px;
   color: var(--title);
   margin: initial;
   box-sizing: border-box;
@@ -60,7 +60,6 @@
 
 .lists ul {
   border-bottom: 1px solid var(--line);
-  background-color: var(--bg);
   padding: initial;
   margin: initial;
   box-sizing: border-box;

@@ -13,8 +13,7 @@
     "copy-assets": "copyfiles -u 1 src/nps/assets/**/* dist",
     "build:ts": "tsc --emitDeclarationOnly && npm run copy-assets",
     "build:js": "rollup -c",
-    "build:types": "rollup -c rollup.types.js",
-    "build": "npm run build:ts && npm run build:js && npm run build:types",
+    "build": "npm run build:ts && npm run build:js ",
     "deploy:check": "npm pack --dry-run",
     "deploy": "npm publish --access public"
   },
@@ -33,6 +32,7 @@
     "copyfiles": "^2.4.1",
     "postcss": "^8.5.3",
     "postcss-import": "^16.1.0",
+    "raw-loader": "^4.0.2",
     "rollup": "^4.40.0",
     "rollup-plugin-dts": "^6.2.1",
     "rollup-plugin-postcss": "^4.0.2",
@@ -42,6 +42,10 @@
     "typescript": "^5.8.3"
   },
   "dependencies": {
-    "@babel/plugin-transform-react-jsx-source": "^7.25.9"
+    "@babel/plugin-transform-react-jsx-source": "^7.25.9",
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
+    "react-draggable": "^4.4.6"
   }
 }
