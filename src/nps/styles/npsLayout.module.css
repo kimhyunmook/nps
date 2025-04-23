@@ -1,7 +1,14 @@
+body:has(.page) {
+  padding: 0;
+  margin: 0;
+}
 .page {
   display: flex;
   flex-wrap: wrap;
   box-sizing: border-box;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
 }
 .page * {
   padding: 0;

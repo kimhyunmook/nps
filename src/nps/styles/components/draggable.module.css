@@ -1,0 +1,6 @@
+.drag {
+  /* display: inline; */
+  position: fixed;
+  top: 50%;
+  width: 450px;
+}

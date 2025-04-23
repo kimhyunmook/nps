@@ -4,6 +4,7 @@ import npsm from "./styles/npsModal.module.css";
 import DisplayName from "./components/modal/displayName";
 import { NextPropsSharedModalProps } from "./types/npsType";
 import CodeBtn from "./components/modal/codeBtn";
+import Draggalbe from "./components/draggable/draggable";
 
 export default function NpsModal({
   isOpen,

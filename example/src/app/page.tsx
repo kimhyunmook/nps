@@ -1,5 +1,5 @@
 "use client";
-import NPS, { UiProvier, Container } from "../../../src/index";
+import { UiProvier, Container } from "../../../src/index";
 import Test from "./test";
 export default function Home() {
   return (
