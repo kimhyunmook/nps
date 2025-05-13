@@ -1,28 +1,13 @@
-import { CSSProperties, RefObject } from "react";
+import { RefObject } from "react";
 import Draggable from "react-draggable";
 import { useRef } from "react";
 import { PropsC2 } from "../../types/npsType";
+import s from "../../styles/components/draggable.module.css";
 
-export default function Draggalbe({
-  children,
-  className,
-  style,
-}: PropsC2 & { style: CSSProperties }) {
+export default function Draggalbe({ children, className }: PropsC2) {
   const nodeRef = useRef<HTMLElement | HTMLDivElement>(null);
   return (
-    <div
-      style={{
-        position: "fixed",
-        top: "auto",
-        bottom: "-100%",
-        left: "50%",
-        width: "100%",
-        transform: "translateX(-50%)",
-        maxWidth: "450px",
-        transition: "0.5s",
-        ...style,
-      }}
-    >
+    <div className={s.drag}>
       <Draggable nodeRef={nodeRef as RefObject<HTMLElement>}>
         <div ref={nodeRef as RefObject<HTMLDivElement>} style={{}}>
           {children}
