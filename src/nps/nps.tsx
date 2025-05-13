@@ -89,6 +89,6 @@ export function Container({
 
 export function useNps() {
   const context = useContext<NextPropsShared>(NextPropsSharedContext);
-  if (!context) throw new Error("NpsProvider 안에서 사용하세요");
+  if (!context) throw new Error("UiProvider 안에서 사용하세요");
   return context;
 }
