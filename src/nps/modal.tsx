@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from "react";
 import npsm from "./styles/npsModal.module.css";
 import DisplayName from "./components/modal/displayName";
@@ -52,7 +51,7 @@ export default function NpsModal({
   return (
     <Draggalbe>
       {isOpen && (
-        <div className={`${npsm.infomation} ${isOpen && display}`}>
+        <div className={`${npsm.information} ${isOpen && display}`}>
           <div className={npsm.top}>
             <h2 className={npsm.name}>
               {!!component.name ? cpName : "Element"}
@@ -71,7 +70,10 @@ export default function NpsModal({
                   if (v[1] === null) value = "null";
                   switch (value) {
                     case "function":
-                      value = "void";
+                      value = "function";
+
+                      const fncType = v[1].toString().split(`FncType)("`)[1];
+                      if (fncType) value = `() => ${fncType.split(`")`)[0]}`;
                       break;
 
                     case "object":

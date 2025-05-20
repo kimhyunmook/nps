@@ -37,7 +37,7 @@ yarn add next-props-shared
 
 ```tsx
 // pages/shared-ui.tsx
-import UiProvider, { Container } from "next-props-shared";
+import { UiProVider, Container } from "next-props-shared";
 import { MyComponent } from "@/components"; // 공유할 컴포넌트
 
 export default function SharedUiPage() {
@@ -51,4 +51,12 @@ export default function SharedUiPage() {
     </UiProvider>
   );
 }
+```
+
+### 함수: `FncType`
+
+- 주어진 문자열로 함수 타입(Signature)을 시각적으로 렌더링해 주는 유틸 컴포넌트입니다. Props로 전달된 함수의 시그니처를 사용자가 쉽게 확인할 수 있도록 도와줍니다.
+
+```tsx
+<Mypomponent fnc={() => FncType("string|number")} />
 ```

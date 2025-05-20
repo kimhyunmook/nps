@@ -1,10 +1,10 @@
 .codeBtn {
-  --border: 2px;
+  --border: 3px;
   text-decoration: none;
   color: #333;
   background-color: #eee;
-  width: 35px;
-  height: 28px;
+  width: 50px;
+  height: 30px;
   font-weight: 500;
   position: absolute;
   display: flex;
@@ -20,13 +20,13 @@
 
 .codeBtn:hover {
   font-weight: 700;
-  width: 45px;
+  width: 60px;
   font-size: 1.1em;
   color: var(--title);
   background-color: #fff;
   border: var(--border) solid var(--props);
 }
 
-.codeBtn:hover img {
-  width: 26px;
+.codeBtn img {
+  width: 20px;
 }

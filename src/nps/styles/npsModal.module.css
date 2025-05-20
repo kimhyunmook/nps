@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Quantico&display=swap");
-.infomation {
+.information {
   position: absolute;
   max-width: 450px;
   width: 100%;
@@ -7,7 +7,6 @@
   border-radius: 6px;
   bottom: -100%;
   left: 50%;
-  /* transform: translateX(-50%); */
   transition: 0.5s;
   z-index: 99;
   padding: 15px;
@@ -23,7 +22,12 @@
   --componentName: #dcdcaa;
   --component: #4ec9b0;
 }
-.infomation.display {
+.information * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.information.display {
   bottom: 0;
   opacity: 1;
   left: 50%;

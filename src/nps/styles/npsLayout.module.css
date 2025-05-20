@@ -41,13 +41,12 @@ body:has(.page) {
   border-radius: 6px;
   transition: 0.5s;
   padding: 3px;
-  display: flex;
+  /* display: flex; */
   position: relative;
 }
 .list .li .element {
-  border: 2px solid transparent;
-  padding: 3px;
   border-radius: 6px;
+  display: flex;
 }
 .list .li .cover {
   width: 100%;
@@ -56,8 +55,14 @@ body:has(.page) {
   top: 0;
   left: 0;
 }
-.list .li:hover > .element {
-  border: 2px solid #000;
+.list .li > .element > .elementLine {
+  border: 2px solid transparent;
+  padding: 2.5px;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+.list .li:hover > .element > .elementLine {
+  border-color: #000;
 }
 
 .list .li:last-child {

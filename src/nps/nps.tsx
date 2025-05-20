@@ -77,7 +77,9 @@ export function Container({
                 });
               }}
             >
-              <div className={npsl.element}>{child}</div>
+              <div className={npsl.element}>
+                <div className={npsl.elementLine}>{child}</div>
+              </div>
               <div className={npsl.cover}></div>
             </li>
           );
