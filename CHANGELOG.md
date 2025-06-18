@@ -1,3 +1,7 @@
+## [0.1.24] - beata
+
+- styles error 수정
+
 ## [0.1.21] - beta
 
 - click able 추가
