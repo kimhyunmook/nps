@@ -1,15 +1,11 @@
 "use client";
-import React, {
-  createContext,
-  PropsWithChildren,
-  useContext,
-  useState,
-} from "react";
+import React, { createContext, useContext, useState } from "react";
 import NpsModal from "./modal";
 import type {
   NextPropsShared,
   NextPropsSharedLayout,
   ComponenetValue,
+  UiProviderType,
 } from "./types/npsType";
 import npsl from "./styles/npsLayout.module.css";
 import ToasterProvider from "./components/toaster/toasterProvider";
@@ -17,15 +13,22 @@ import getDisplayName from "./lib/getDisplayName";
 import getVscUrl from "./lib/getVscUrl";
 
 const NextPropsSharedContext = createContext<NextPropsShared>({
+  clickAble: false,
   setIsOpen: () => {},
   setComponent: () => {},
 });
 
-export default function UiProvider({ children }: PropsWithChildren) {
+export default function UiProvider({ children, clickAble }: UiProviderType) {
   const [isOpen, setIsOpen] = useState(false);
   const [component, setComponent] = useState<ComponenetValue>({});
   return (
-    <NextPropsSharedContext.Provider value={{ setIsOpen, setComponent }}>
+    <NextPropsSharedContext.Provider
+      value={{
+        setIsOpen,
+        setComponent,
+        clickAble: clickAble ? clickAble : false,
+      }}
+    >
       <ToasterProvider>
         <div className={npsl.page}>{children}</div>
         <NpsModal isOpen={isOpen} setIsOpen={setIsOpen} component={component} />
@@ -39,8 +42,12 @@ export function Container({
   title,
   width,
   borderColor,
+  clickAble,
 }: NextPropsSharedLayout) {
-  const { setIsOpen, setComponent } = useNps();
+  const { setIsOpen, setComponent, clickAble: NpsClickAble } = useNps();
+  const [_clickAble, setClickAble] = useState<boolean>(
+    clickAble ? clickAble : NpsClickAble
+  );
   return (
     <div
       className={npsl.layout}
@@ -80,7 +87,7 @@ export function Container({
               <div className={npsl.element}>
                 <div className={npsl.elementLine}>{child}</div>
               </div>
-              <div className={npsl.cover}></div>
+              {_clickAble ? null : <div className={npsl.cover}></div>}
             </li>
           );
         })}

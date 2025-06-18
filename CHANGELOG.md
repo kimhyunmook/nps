@@ -1,3 +1,7 @@
+## [0.1.21] - beta
+
+- click able 추가
+
 ## [0.1.20] - beta
 
 - vscode btn icon 수정
