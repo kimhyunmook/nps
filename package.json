@@ -1,6 +1,6 @@
 {
   "name": "next-props-shared",
-  "version": "0.1.20",
+  "version": "0.1.23",
   "license": "MIT",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
@@ -16,7 +16,7 @@
     "build:js": "rollup -c",
     "build": "npm run build:ts && npm run build:js ",
     "deploy:check": "npm pack --dry-run",
-    "deploy": "npm publish --access public"
+    "deploy": "npm run build && npm publish --access public"
   },
   "peerDependencies": {
     "react": "^19.1.0",
