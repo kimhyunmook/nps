@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Quantico&display=swap");
 .information {
+  margin: 0;
+  box-sizing: border-box;
   position: absolute;
   max-width: 450px;
   width: 100%;
@@ -22,12 +24,11 @@
   --componentName: #dcdcaa;
   --component: #4ec9b0;
 }
-.information * {
+
+.information.display {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-}
-.information.display {
   bottom: 0;
   opacity: 1;
   left: 50%;
@@ -37,6 +38,9 @@
 }
 
 .name {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
   font-family: Quantico;
   font-size: 24px;
   font-weight: 700;
@@ -47,10 +51,16 @@
 }
 
 .title {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
   font-family: Quantico;
 }
 
 .elements {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
   background-color: #e2e2e2;
   padding: 10px;
   margin: 2.5px 0;
@@ -58,8 +68,14 @@
   margin-bottom: 15px;
 }
 .lists {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 .lists h2 {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
   padding-bottom: 5px;
   color: var(--title);
   margin: initial;
@@ -67,12 +83,17 @@
 }
 
 .lists ul {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
   border-bottom: 1px solid var(--line);
   padding: initial;
   margin: initial;
   box-sizing: border-box;
 }
 .lists ul li {
+  margin: 0;
+  box-sizing: border-box;
   display: flex;
   padding: 2.5px;
   border-bottom: 1px solid var(--line);
@@ -83,9 +104,14 @@
   border-bottom: 0;
 }
 .lists ul li.noProps {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
   /* padding: 10px; */
 }
 .noProps p {
+  padding: 0;
+  box-sizing: border-box;
   color: #fff;
   margin: 0;
   text-align: center;
@@ -94,6 +120,9 @@
   font-weight: 700;
 }
 .key {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
   font-size: 20px;
   margin: initial;
   margin-right: 15px;
@@ -101,6 +130,9 @@
   box-sizing: border-box;
 }
 .value {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
   font-size: 18px;
   color: var(--component);
   line-height: 1.5em;
@@ -108,10 +140,18 @@
   box-sizing: border-box;
 }
 .ob {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
   color: rgb(255, 186, 83);
   display: flex;
   align-items: center;
   margin: initial;
+  box-sizing: border-box;
+}
+.ob span {
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
 .ob span:first-child {
@@ -122,6 +162,9 @@
 }
 
 .closeBtn {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
   display: block;
   width: 25px;
   height: 25px;

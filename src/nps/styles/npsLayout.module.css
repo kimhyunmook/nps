@@ -9,18 +9,28 @@ body:has(.page) {
   min-height: 100vh;
   width: 100%;
   overflow: hidden;
-}
-.page * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
+/* .page * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+} */
+
 .layout {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
   position: relative;
   margin: 40px 10px;
   display: inline;
 }
 .title {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
   font-family: quantity;
   font-size: 20px;
   font-weight: 700;
@@ -28,6 +38,9 @@ body:has(.page) {
   top: -35px;
 }
 .list {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
   margin: initial;
   padding: 30px;
   border-radius: 6px;
@@ -36,6 +49,9 @@ body:has(.page) {
   box-shadow: 0px 3px 0 #888;
 }
 .list .li {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
   list-style: none;
   margin-bottom: 10px;
   border-radius: 6px;
@@ -45,10 +61,16 @@ body:has(.page) {
   position: relative;
 }
 .list .li .element {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
   border-radius: 6px;
   display: flex;
 }
 .list .li .cover {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -56,15 +78,24 @@ body:has(.page) {
   left: 0;
 }
 .list .li > .element > .elementLine {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
   border: 2px solid transparent;
   padding: 2.5px;
   border-radius: 6px;
   transition: 0.3s;
 }
 .list .li:hover > .element > .elementLine {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
   border-color: #000;
 }
 
 .list .li:last-child {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
   margin-bottom: 0;
 }
