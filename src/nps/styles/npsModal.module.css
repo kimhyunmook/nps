@@ -26,8 +26,8 @@
 }
 
 .information.display {
-  padding: 0;
-  margin: 0;
+  /* padding: 0; */
+  /* margin: 0; */
   box-sizing: border-box;
   bottom: 0;
   opacity: 1;
@@ -62,10 +62,13 @@
   margin: 0;
   box-sizing: border-box;
   background-color: #e2e2e2;
-  padding: 10px;
+  padding: 8px;
   margin: 2.5px 0;
   border-radius: 5px;
   margin-bottom: 15px;
+}
+.elements:nth-child(1) {
+  margin: 0;
 }
 .lists {
   padding: 0;

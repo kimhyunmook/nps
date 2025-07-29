@@ -10,8 +10,8 @@ import image from "@rollup/plugin-image";
 export default {
   input: "src/index.tsx",
   output: [
-    { file: "dist/index.es.js", format: "es" },
-    { file: "dist/index.cjs.js", format: "cjs" },
+    { file: "dist/index.es.js", exports: "named", format: "es" },
+    { file: "dist/index.cjs.js", exports: "named", format: "cjs" },
   ],
   external: ["react", "react-dom"],
   plugins: [

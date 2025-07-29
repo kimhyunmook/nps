@@ -11,10 +11,11 @@
   "type": "module",
   "scripts": {
     "dev": "cd example && npm run dev",
-    "copy-assets": "copyfiles -u 1 src/nps/assets/**/* dist",
+    "clean": "rm -rf dist && rm -rf example/node_modules && rm -rf example/.next",
+    "copy-assets": "copyfiles -u 2 src/nps/assets/**/* dist/assets",
     "build:ts": "tsc --emitDeclarationOnly && npm run copy-assets",
     "build:js": "rollup -c",
-    "build": "npm run build:ts && npm run build:js ",
+    "build": "npm run clean && npm run build:ts && npm run build:js",
     "deploy:check": "npm pack --dry-run",
     "deploy": "npm run build && npm publish --access public"
   },

@@ -1,10 +1,10 @@
-import UiProvier, { Container } from "./nps/nps";
+import UiProvider, { Container } from "./nps/nps";
 import FncType from "./nps/lib/fncTool";
 
 const NPS = {
-  UiProvier,
+  UiProvider,
   Container,
   FncType,
 };
-export { UiProvier, Container, FncType };
+export { UiProvider, Container, FncType };
 export default NPS;
