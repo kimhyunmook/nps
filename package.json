@@ -1,6 +1,6 @@
 {
   "name": "next-props-shared",
-  "version": "0.1.24",
+  "version": "0.1.25",
   "license": "MIT",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
@@ -11,7 +11,7 @@
   "type": "module",
   "scripts": {
     "dev": "cd example && npm run dev",
-    "clean": "rm -rf dist && rm -rf example/node_modules && rm -rf example/.next",
+    "clean": "rm -rf dist",
     "copy-assets": "copyfiles -u 2 src/nps/assets/**/* dist/assets",
     "build:ts": "tsc --emitDeclarationOnly && npm run copy-assets",
     "build:js": "rollup -c",

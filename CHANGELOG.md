@@ -1,4 +1,4 @@
-## [0.1.24] - beata
+## [0.1.24|0.1.25] - beata
 
 - styles error 수정
 
