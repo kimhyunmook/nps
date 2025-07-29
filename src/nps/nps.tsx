@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useState } from "react";
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import NpsModal from "./modal";
 import type {
   NextPropsShared,
@@ -19,7 +25,22 @@ const NextPropsSharedContext = createContext<NextPropsShared>({
 
 export default function UiProvider({ children, clickAble }: UiProviderType) {
   const [isOpen, setIsOpen] = useState(false);
+  const [cssLoaded, setCssLoaded] = useState(false);
   const [component, setComponent] = useState<ComponenetValue>({});
+  const providerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = providerRef.current;
+    if (!el) return;
+    const style = getComputedStyle(el);
+
+    setTimeout(() => {
+      if (style.display === "flex") {
+        setCssLoaded(true);
+      }
+    }, 3000);
+  }, [providerRef.current]);
+
   return (
     <NextPropsSharedContext.Provider
       value={{
@@ -29,7 +50,18 @@ export default function UiProvider({ children, clickAble }: UiProviderType) {
       }}
     >
       <ToasterProvider>
-        <div className={npsl.page}>{children}</div>
+        <div className={npsl.page} ref={providerRef}>
+          {!cssLoaded ? (
+            <div className={npsl.loading}>
+              Loadding
+              <span className={npsl.dot}>.</span>
+              <span className={npsl.dot}>.</span>
+              <span className={npsl.dot}>.</span>
+            </div>
+          ) : (
+            children
+          )}
+        </div>
         <NpsModal isOpen={isOpen} setIsOpen={setIsOpen} component={component} />
       </ToasterProvider>
     </NextPropsSharedContext.Provider>

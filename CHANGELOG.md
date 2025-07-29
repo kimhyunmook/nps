@@ -1,3 +1,7 @@
+## [0.1.26] - beta
+
+- loading UI 추가
+
 ## [0.1.24|0.1.25] - beata
 
 - styles error 수정
